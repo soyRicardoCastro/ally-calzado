@@ -1,7 +1,8 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import { withUt } from "uploadthing/tw";
 
-export default {
+export default withUt({
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -18,9 +19,9 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-geist)", ...fontFamily.sans]
-      },
+      // fontFamily: {
+      //   sans: ["var(--font-geist)", ...fontFamily.sans]
+      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -79,4 +80,4 @@ export default {
     
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms"), require("@tailwindcss/typography")],
-} satisfies Config
+}) satisfies Config

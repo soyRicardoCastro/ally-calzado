@@ -1,11 +1,15 @@
 import "@/styles/globals.css";
-
-import { GeistSans } from "geist";
-import { headers } from "next/headers";
-
-import { TRPCReactProvider } from "@/trpc/react";
+import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
+// import { GeistSans } from "geist"
+
+const GeistSans = localFont({
+  src: "./GeistVF.woff2",
+  variable: "--font-geist",
+  display: "swap",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: "Sistema Administrativo: Ally Calzado",
@@ -21,8 +25,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head />
-      <body className={cn("antialised min-h-screen", GeistSans.variable)}>
-        <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
+      <body className={cn("antialised min-h-screen font-sans")}>{children}
       </body>
     </html>
   );
